@@ -7,12 +7,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 
 export default function TodoList() {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
+  // Explicitly define the type for tasks (array of strings)
+  const [tasks, setTasks] = useState<string[]>([]);
+  const [newTask, setNewTask] = useState<string>("");
 
   const addTask = () => {
     if (newTask.trim() === "") return;
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, newTask]); // No TypeScript error now
     setNewTask("");
   };
 
